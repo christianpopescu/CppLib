@@ -8,7 +8,10 @@ namespace cppstdlib {
 
   private :
     char* theString;
-  }
+    int size;
+    int length;
+    const static int minAlloc;
+  };
 }
 
 #endif // CPP_LIB_STRINGBUILDER_H
