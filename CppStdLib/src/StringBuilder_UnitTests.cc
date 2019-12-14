@@ -7,9 +7,8 @@ namespace {
     cppstdlib::StringBuilder sb;
     //EXPECT_STREQ("", sb.getString());
 
-    //EXPECT_EQ(0, sb.getLength());
+    EXPECT_EQ(0, sb.getLength());
 
-    //EXPECT_EQ(16, sb.getSize());
-    EXPECT_EQ(16, 16);
+    EXPECT_EQ(16, sb.getSize());
   }
 }

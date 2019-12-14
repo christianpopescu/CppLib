@@ -4,12 +4,16 @@ GTEST_LIBS = `pkg-config --libs gtest_main`
 .PHONY: tests all
 	
 tests: all
-	./testapp
+	./StringBuilder_UnitTests
        
-all: testapp
+all: StringBuilder_UnitTests
      
-testapp: testapp.o
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $< -o $@ $(GTEST_LIBS)
+StringBuilder_UnitTests: StringBuilder_UnitTests.o StringBuilder.o
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $^ -o $@ $(GTEST_LIBS)
 	 
-testapp.o: StringBuilder_UnitTests.cc
+StringBuilder_UnitTests.o: StringBuilder_UnitTests.cc 
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< -c -o $@ $(GTEST_CFLAGS)
+
+StringBuilder.o: StringBuilder.cc 
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< -c -o $@ 
+	
