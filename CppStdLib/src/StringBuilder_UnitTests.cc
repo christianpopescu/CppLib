@@ -4,7 +4,7 @@
 namespace {
   // Test default constructor
   TEST(stringBuilder, DefaultContructor) {
-    //cppstdlib::StringBuilder sb;
+    cppstdlib::StringBuilder sb;
     //EXPECT_STREQ("", sb.getString());
 
     //EXPECT_EQ(0, sb.getLength());
