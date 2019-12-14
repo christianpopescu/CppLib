@@ -1,0 +1,15 @@
+GTEST_CFLAGS = `pkg-config --cflags gtest_main`
+GTEST_LIBS = `pkg-config --libs gtest_main`
+	   
+.PHONY: tests all
+	
+tests: all
+	./testapp
+       
+all: testapp
+     
+testapp: testapp.o
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $< -o $@ $(GTEST_LIBS)
+	 
+testapp.o: StringBuilder_UnitTests.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $< -c -o $@ $(GTEST_CFLAGS)

@@ -25,8 +25,7 @@ namespace cppstdlib {
   int StringBuilder::getSize(){
     return size;
   }
-
-  
+ 
   void StringBuilder::append(std::string str){
 
     char* dest = nullptr;
@@ -51,12 +50,10 @@ namespace cppstdlib {
       for (auto c : str){
 	*dest++ = c;
       }
+  // 3 - Adjust lenght
 
       length += str.size();
       *(theString + length) = 0x00;
-
-      // 3 - Adjust lenght
-      
   }
 
 }
