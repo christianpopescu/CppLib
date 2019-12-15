@@ -1,26 +1,27 @@
+GTEST_CFLAGS = `pkg-config --cflags gtest_main`
+GTEST_LIBS = `pkg-config --libs gtest_main`
+TEST_DIR=test/
 PROJECT_DIR=project/
-	
+
+.PHONY: clean tests all
+
 run : main	
 	./main
-	
+
 main : main.o StringBuilder.o
 	g++ -std=c++17 main.o StringBuilder.o -o main
 
 main.o : main.cc $(PROJECT_DIR)StringBuilder.h $(PROJECT_DIR)StringBuilder.cc
 	g++ -std=c++17 -c main.cc $(PROJECT_DIR)StringBuilder.cc
 
-.PHONY: clean tests all
-	
+
 clean :
 	rm *.exe
 	rm *.o
-GTEST_CFLAGS = `pkg-config --cflags gtest_main`
-GTEST_LIBS = `pkg-config --libs gtest_main`
-TEST_DIR=test/
-	
+
 tests: all
 	./StringBuilder_UnitTests
-       
+
 all: StringBuilder_UnitTests
      
 StringBuilder_UnitTests: StringBuilder_UnitTests.o StringBuilder.o
