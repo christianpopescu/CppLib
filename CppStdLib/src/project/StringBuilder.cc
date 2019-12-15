@@ -56,4 +56,19 @@ namespace cppstdlib {
       *(theString + length) = 0x00;
   }
 
+  void StringBuilder::clear(){
+    if (!isEmpty()) {
+      delete theString;
+      size = minAlloc;
+      length = 0;
+      theString = new char[minAlloc];
+      theString[0] = 0x00;
+    }
+
+  }
+
+  bool StringBuilder::isEmpty(){
+    return (length == 0 && size == minAlloc && theString[0] == 0x00);
+  }
+  
 }

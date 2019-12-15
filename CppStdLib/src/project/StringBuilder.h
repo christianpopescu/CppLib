@@ -12,12 +12,14 @@ namespace cppstdlib {
     int getLength();  //
     int getSize();    // get the allocated size
     void append(std::string str);  // append of string
+    void clear();         // empty string
 
-  private :
+  protected :
     char* theString;
     int size;
     int length;
     const static int minAlloc;
+    bool isEmpty();
   };
 }
 

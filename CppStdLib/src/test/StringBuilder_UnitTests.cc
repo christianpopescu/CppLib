@@ -81,4 +81,16 @@ namespace {
     EXPECT_EQ(64, sb.getSize());
   }
 
+ TEST(stringBuilder, clear) {
+    cppstdlib::StringBuilder sb;
+    sb.append("testempty");
+    sb.clear();
+    EXPECT_EQ("", sb.getString());
+
+    EXPECT_EQ(0, sb.getLength());
+
+    EXPECT_EQ(16, sb.getSize());
+
+  }
+
 }
