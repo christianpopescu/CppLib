@@ -8,3 +8,9 @@ main : main.o StringBuilder.o
 
 main.o : main.cc $(PROJECT_DIR)StringBuilder.h $(PROJECT_DIR)StringBuilder.cc
 	g++ -std=c++17 -c main.cc $(PROJECT_DIR)StringBuilder.cc
+
+.PHONY: clean
+	
+clean :
+	rm *.exe
+	rm *.o
