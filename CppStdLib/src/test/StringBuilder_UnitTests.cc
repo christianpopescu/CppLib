@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"      // include GoogleTest
-#include "StringBuilder.h"    // include class to test
+#include "../project/StringBuilder.h"    // include class to test
 
 namespace {
   // Test default constructor
